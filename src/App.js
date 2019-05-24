@@ -11,9 +11,11 @@ class App extends Component {
 
 
   //Your code here:
+  componentDidMount(){
+    this.handleAddTimer()
+  }
 
-
-
+  // Write a componentDidMount that initializes an interval. Pass clockTick as the callback function and set it to 1000 to update every second.
 
 
 
@@ -39,7 +41,7 @@ class App extends Component {
 
   // returns array of components written in JSX, mapped from this.state.timerIDs
   renderTimers = () => this.state.timerIDs.map(id => {
-    return <Timer key={id} id={id} removeTimer={this.removeTimer} />
+    return <Timer key={id} id={id} removeTimer={this.removeTimer} clockTick={this.clockTick}/>
   })
 
   // adds a random number for timer ID
@@ -55,7 +57,6 @@ class App extends Component {
       timerIDs: prevState.timerIDs.filter(timer_id => timer_id !== id)
     }))
   }
-
 
 }
 
